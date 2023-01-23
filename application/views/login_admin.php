@@ -15,16 +15,15 @@
 	<meta name="author" content="">
 	<link rel="shortcut icon" href="assets/ico/favicon.png">
 
-	<title>Login - Ecocare CMS</title>
+	<title>Login - <?php echo $title; ?></title>
 
 	<!-- Javascript and Stylesheet -->
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/site/css/dashboard.css">
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-         
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.0.1/ckeditor.js"></script> 
-        <script src="//code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-        <!--<script type="text/javascript" src="assets/site/js/jquery.ui.sortable.js"></script>-->
+
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.0.1/ckeditor.js"></script>
+    <script src="//code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     <link rel="stylesheet" href="<?php echo base_url();?>assets/fonts/font.css"/>
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
 	<link href="<?php echo base_url();?>assets/css/style-codelabs.css" rel="stylesheet" type="text/css"/>
@@ -49,7 +48,7 @@
 								Sign in to your account
 							</div>
 							<div class="box-content">
-                                <form action="<?php echo site_url("login_admin/login_check");?>" method="post" accept-charset="utf-8">					
+                                <form action="<?php echo site_url("login_admin/login_check");?>" method="post" accept-charset="utf-8">
                                 <div class="form-group">
 									<label for="username">Username</label>
 									<input type="text" name="username" value="" placeholder="Your username" class="col-xs-12 form-control" />

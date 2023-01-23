@@ -12,6 +12,8 @@ RUN apt-get update && apt-get install -y \
   zip \
   unzip
 
+RUN a2enmod rewrite
+
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN docker-php-ext-install pdo mysqli pdo_mysql

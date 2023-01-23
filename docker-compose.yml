@@ -16,6 +16,8 @@ services:
       - local
     ports:
       - 80:80
+    volumes:
+      - .:/var/www/html
 
   mysql:
     image: mysql:8.0
