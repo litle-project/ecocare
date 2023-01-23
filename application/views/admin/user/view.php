@@ -39,7 +39,6 @@
 						<th>Name</th>
 						<th>Username</th>
 						<th>Email</th>
-						<th>Photo</th>
 						<th>Privileges</th>
 						<th>Edit</th>
 						<th>Delete</th>
@@ -55,7 +54,6 @@
 						<td><?php echo $row["admin_name"];?></td>
 						<td><?php echo $row["admin_username"];?></td>
 						<td><?php echo $row["admin_email"];?></td>
-						<td><img src="<?php echo base_url("media/user/".$row["admin_photo"]);?>" width="80px" height="80px"></td>
 						<td><?php echo $row["user_group_name"];?></td>
 						<td>
 							<button class="btn btn-sm blue" onclick="window.location.href='<?php echo site_url("admin_user/edit/".$row["admin_id"]);?>'"><b>Edit</b></button>
@@ -75,7 +73,6 @@
 						<th>Name</th>
 						<th>Username</th>
 						<th>Email</th>
-						<th>Photo</th>
 						<th>Privileges</th>
 						<th>Edit</th>
 						<th>Delete</th>

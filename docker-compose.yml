@@ -30,6 +30,7 @@ services:
       MYSQL_PASSWORD: ecocare
       MYSQL_DATABASE: management
       MYSQL_ROOT_PASSWORD: ecocare
+    command: mysqld --sql_mode=""
     volumes:
       - ./database:/var/lib/
 

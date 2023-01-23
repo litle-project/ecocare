@@ -16,4 +16,6 @@ RUN a2enmod rewrite
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
-RUN docker-php-ext-install pdo mysqli pdo_mysql
+RUN docker-php-ext-install pdo mysqli pdo_mysql gd
+
+RUN docker-php-ext-configure gd

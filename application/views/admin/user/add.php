@@ -11,20 +11,20 @@
 				return false;
 			}
 		});
-		
+
 		$("#priv").change(function(){
 			//alert("a");
 			var a=$(this).val();
 			if(a>1){
 				$("#res").fadeIn();
 				$("#rest").attr("required","true");
-				
+
 			}else{
 				$("#res").hide();
 				$("#rest").val("");
 				$("#rest").attr("required","false");
 			}
-			
+
 		});
 	});
 </script>
@@ -54,7 +54,7 @@
 						<br/>
 
 						<form class="form-horizontal" action="<?php echo site_url("admin_user/add") ?>" method="post" enctype='multipart/form-data'>
-						<div class="form-body">	
+						<div class="form-body">
 							<div class="form-group">
 								<label class="col-md-4 col-sm-3 control-label">Username</label>
 								<div class="col-md-6 col-sm-6">
@@ -91,20 +91,13 @@
 							</div>
 
 							<div class="form-group">
-								<label class="col-md-4 col-sm-3 control-label">Photo<br/><small>(300x300px)</small></label>
-								<div class="col-md-6 col-sm-6">
-									<?php echo form_upload("photo","","required class='form-control'"); ?>
-								</div>
-							</div>
-
-							<div class="form-group">
 								<label class="col-md-4 col-sm-3 control-label">User Group Privileges</label>
 								<div class="col-md-6 col-sm-6">
 									<?php echo form_dropdown("priv",$priv,"","required class='form-control' id='priv'"); ?>
 								</div>
 							</div>
 						</div>
-						
+
 						<div class="form-actions fluid">
 							<div class="col-md-12">
 								<center>

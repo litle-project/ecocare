@@ -13,8 +13,42 @@ class Login_admin extends CI_Controller {
     }
 
     public function login_check() {
-        echo "<pre>";
-        print_r($this->input->post());
-        die();
-    }
+		if ($this->input->post()) {
+			$post=$this->input->post();
+			$check=$this->login_admin_model->login_check($post);
+			$conn=$this->login_admin_model->get_config();
+			$num=$check->num_rows();
+
+			if ($num==1) {
+				$ck=$check->row_array();
+				$ck["admin_password"]="";
+				$ck["logged_in"]=true;
+				$this->session->set_userdata($ck);
+				$co=$conn->row_array();
+				$this->session->set_userdata($co);
+
+				redirect("admin");
+			} else {
+				$con = $conn->result_array();
+
+				if ($post["username"]==$con[0]["username"]) {
+					if (md5($post["password"])==$con[0]["password"]) {
+						$co=$conn->row_array();
+
+						$this->session->set_userdata($co);
+						redirect("config");
+					}
+				}
+
+               redirect("login_admin");
+			}
+		}
+	}
+
+
+	function logout(){
+		$this->session->sess_destroy();
+
+		redirect("login_admin");
+	}
 }

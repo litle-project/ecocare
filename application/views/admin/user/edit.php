@@ -44,7 +44,7 @@
 				$("#pass_status").val("0");
 			}
 		});
-		
+
 		$("#photo").click(function(){
 			//alert("aaa");
 			var vala=$(this).attr("value");
@@ -67,7 +67,7 @@
 			if(a>1){
 				$("#res").fadeIn();
 				$("#rest").attr("required","true");
-				
+
 			}else{
 				$("#res").hide();
 				$("#rest").attr("required","false");
@@ -103,7 +103,7 @@
 							<div class="form-group">
 								<label class="col-md-4 col-sm-3 control-label">Username</label>
 								<div class="col-md-6 col-sm-6">
-									<?php echo form_input("username",$row["admin_username"],"required class='form-control input full-width'"); ?>  
+									<?php echo form_input("username",$row["admin_username"],"required class='form-control input full-width'"); ?>
 								</div>
 							</div>
 
@@ -120,7 +120,7 @@
 									<?php echo form_password("password2","","id='pass2' class='form-control input full-width'"); ?>
 								</div>
 							</div>
-							
+
 							<div class="form-group">
 								<label class="col-md-4 col-sm-3 control-label"></label>
 								<div class="col-md-6 col-sm-6">
@@ -140,18 +140,6 @@
 								<label class="col-md-4 col-sm-3 control-label">Email</label>
 								<div class="col-md-6 col-sm-6">
 									<?php echo form_input("email",$row["admin_email"],"required class='form-control input full-width'"); ?>
-								</div>
-							</div>
-
-							<div class="form-group">
-								<label class="col-md-4 col-sm-3 control-label">Photo<br/><small>(300x300px)</small></label>
-								<div class="col-md-6 col-sm-6">
-									<img src="<?php echo base_url("media/user/".$row["admin_photo"]);?>" width="150px" height="150px">
-									<input type="hidden" name="photo_status" id="photo_status" value="0">
-									<input type="button" value="Change Photo" class="btn blue-gradient" id="photo" style="font-weight: bold;">
-									<p class="button-height inline-label pt" style="display:none">
-										<?php echo form_upload("photo","","id='photos'"); ?>
-									</p>
 								</div>
 							</div>
 
