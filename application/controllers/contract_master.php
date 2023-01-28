@@ -6,7 +6,7 @@ class Contract_master extends CI_Controller {
 		$this->load->model("global_model");
 		$this->load->model("contract_model");
 		$this->load->model("admin_product_model");
-		$this->load->library('excel');
+		// $this->load->library('excel');
 		$page=$this->uri->segment(2);
 	}
 	

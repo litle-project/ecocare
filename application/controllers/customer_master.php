@@ -4,7 +4,7 @@ class Customer_master extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->model("global_model");
-        $this->load->library("excel");
+        // $this->load->library("excel");
 
 		$page=$this->uri->segment(2);
 		
