@@ -1,1 +1,0 @@
-<?phpclass Api_member_model extends CI_Controller{		function get_data($id){		$this->db->select("*");		$this->db->from("member_login a");		$this->db->join("member b","b.member_no=a.member_no");		$this->db->where("a.deleted","0");				//if($id!=""){			$this->db->where("a.member_no",$id);		//}						$query=$this->db->get();				return $query->row_array();	}}
