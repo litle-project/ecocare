@@ -1,4 +1,5 @@
-<?php if (! defined('BASEPATH'))exit('No direct script access allowed');
+<?php if (! defined('BASEPATH'))exit('No direct script access allowed');
+
 
 class Login_admin extends CI_Controller {
 
@@ -7,7 +8,7 @@ class Login_admin extends CI_Controller {
         $this->load->model("login_admin_model");
     }
 
-    public function index() {
+    public function index() {
         $data["title"] = "Ecocare CMS";
         $this->load->view('login_admin', $data);
     }
@@ -46,7 +47,7 @@ class Login_admin extends CI_Controller {
 	}
 
 
-	function logout(){
+	public function logout() {
 		$this->session->sess_destroy();
 
 		redirect("login_admin");
