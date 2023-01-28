@@ -1,11 +1,9 @@
-\<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class Product_package extends CI_Controller {
 	
 	function __construct(){
 		parent::__construct();
 		$this->load->model("global_model");
-		// $this->load->model("admin_product_model");
-		// $this->load->model("package_model");
 		$page=$this->uri->segment(2);
 		
 		if($page=='') priv('view');
@@ -37,15 +35,13 @@ class Product_package extends CI_Controller {
 
 	    if($this->input->post()){
 			$post = $this->input->post();
-			// echo "<pre>"; print_r($this->input->post()); die();
-
-			// insert package data
 			$input = array(
-						"package_name" 				=> $post["package_name"],
-						"package_desc" 				=> $post["package_desc"],
-						"created_date" 				=> date("Y-m-d H:i:s"),
-						"created_by" 				=> $this->session->userdata("admin_id"),
-					);
+				"package_name" 				=> $post["package_name"],
+				"package_desc" 				=> $post["package_desc"],
+				"created_date" 				=> date("Y-m-d H:i:s"),
+				"created_by" 				=> $this->session->userdata("admin_id"),
+			);
+
 					
 			// echo "<pre>"; print_r($input); die();
 			$this->db->insert("product_package", $input);
@@ -62,7 +58,7 @@ class Product_package extends CI_Controller {
 				$this->db->insert("product_package_detail", $input_product);
             }
                         
-			// input log
+			// // input log
 			$action="Create Package ".$post["package_name"];
 			$this->Aktiviti_log_model->create($action);
 			
