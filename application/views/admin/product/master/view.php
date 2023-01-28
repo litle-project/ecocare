@@ -6,7 +6,6 @@
 			<div class="portlet-body">
 				<div class="table-toolbar">
 					<button class="btn green" onclick="window.location.href='<?php echo site_url($this->uri->segment(1)."/add");?>'"><i class="fa fa-plus"></i> &nbsp;&nbsp;&nbsp;<b>Add New</b></button>
-					<button class="btn green" onclick="window.location.href='<?php echo site_url($this->uri->segment(1)."/import");?>'"><i class="fa fa-plus"></i> &nbsp;&nbsp;&nbsp;<b>Import</b></button>
 				</div>
 				
 				<table class="table table-striped table-bordered table-hover" id="sample_editable_1">

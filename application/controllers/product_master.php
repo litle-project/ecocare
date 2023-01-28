@@ -1,11 +1,12 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
 class Product_master extends CI_Controller {
 	
-	function __construct(){
+	public function __construct() {
 		parent::__construct();
 		$this->load->model("global_model");
 		$this->load->model("admin_product_model");
-		$this->load->library("excel");
+		// $this->load->library("excel");
 		
 		$page=$this->uri->segment(2);
 		
@@ -14,10 +15,8 @@ class Product_master extends CI_Controller {
 		else if($page=='edit') priv('edit');
 		else if($page=='delete') priv('delete');
 		else  priv('other');
-		
-		
 	}
-	
+
 	public function index()
 	{   
 		priv('view');
@@ -153,65 +152,6 @@ class Product_master extends CI_Controller {
     	$this->Aktiviti_log_model->create($action);
 
 		redirect("product_master");
-	}
-
-
-	function import()
-	{
-		priv('other');
-		$data["image_sample"] 	= "sample.png";
-		$data["excel_sample"] 	= "import_product_sample6.xlsx";
-		$data["control"]		= "product";
-		$data["page"]			= "product/master/import/view";
-		$data["title"]			= "Import Product";
-
-		if($this->input->post()){
-            $fileName 					= $_FILES['import']['name'];
-            $config['upload_path'] 		= './media/product/';
-            $config['file_name'] 		= $fileName;
-            $config['allowed_types'] 	= '*';
-            $config['max_size']        	= 10000;
-
-            $this->load->library('upload');
-            $this->upload->initialize($config);
-            $file = "import";         
-            if ( ! $this->upload->do_upload($file)){
-                    print_r($this->upload->display_errors());
-            }else{
-                $name=$this->upload->data($file);
-                $image=$name['file_name'];
-            }       
-            $inputFileName = './media/product/'.$image;
-            
-            // echo $inputFileName;
-            $objReader = PHPExcel_IOFactory::createReader('Excel2007');
-            $objPHPExcel = $objReader->load($inputFileName);
-            $sheetData = $objPHPExcel->getActiveSheet()->toArray(null,true,true,true);
-            // echo "<pre>";
-            // print_r($sheetData);die();
-            if(count($sheetData)>0) {
-            	foreach ($sheetData as $row) {
-        			if(!empty($row["A"])){
-        				if ($row != $sheetData[1] && $row != $sheetData[2]) {
-        					$input['product_name'] = $row['A'];
-        					$input['product_code'] = $row['B'];
-        					$input['category_id']  = $row['C'];
-        					if ($row['C'] == '1') {
-        						$input['aroma'] = 0;
-        					}else{
-        						$input['aroma'] = $row['D'];
-        					}
-        					$input['created_date'] = date("Y-m-d H:i:s");
-        					$input['created_by']   = $this->session->userdata("admin_id");
-        					// echo "<pre>"; print_r($input); die();
-        					$this->db->insert("product_master", $input);
-						}
-					}
-				}
-			}
-            redirect("product_master");
-		}
-		$this->load->view('admin',$data);
 	}
 }
 
