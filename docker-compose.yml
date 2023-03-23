@@ -16,7 +16,6 @@ services:
       - local
     ports:
       - 8000:80
-      - 8100:433
     volumes:
       - .:/var/www/html
 
